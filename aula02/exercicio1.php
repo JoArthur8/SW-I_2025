@@ -7,14 +7,15 @@
 </head>
 <body>
     <?php
-        $nome = "Álvaro";
-        $idade = 23;
-        $valor = 99.99;
+        $nome = "Tyrone";
+        $idade = 18;
+        $valor = 100;
 
         echo "<p>Olá qual o seu nome?</p>";
         echo "<p>$nome</p>";
         echo "<p>Oi $nome, Quantos anos você tem?</p>";
         echo "<p>$idade</p>";
+        echo "<p>Então você tem $idade anos!</p>";
         echo "<p>Quanto você ganha?</p>";
         echo "<p>$valor</p>";
         echo "<p>$valor! Eu espero que seja por hora e não por ano</p>";
