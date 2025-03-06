@@ -7,14 +7,10 @@
 </head>
 <body>
     <p>3. Crie um formulário onde o usuário seleciona uma cor em um input color e que altere a cor de fundo da página. Utilize a escala de cores a seguir; http://www.w3schools.com/html/html_colors.asp</p>
-    <form action="form05.php" method="POST">
+    <form action="exercicio05.php" method="POST">
         <p> Escolha uma cor <input type="color" id="favcolor" name="cor" value="#ff0000"></p>
         <input type="submit" value="Enviar">
     </form>
-    <?php
-    $CorEscolhida = $_POST['cor'];
-    echo "<body style='background-color: $CorEscolhida'>";
-    ?>
     
 </body>
 </html>
