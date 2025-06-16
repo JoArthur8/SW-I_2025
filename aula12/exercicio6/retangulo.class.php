@@ -7,13 +7,17 @@
             $this->Largura = $largura;
             $this->Altura = $altura;
         }
-        public function calcularArea($area){
-            $area =  $this->Largura*$this->Altura;
-            return $area;
+        public function getLargura(){
+            return $this->Largura;
         }
-        public function calcularPerimetro($perimetro){
-            $perimetro =  ($this->Largura+$this->Altura)*2;
-            return $perimetro;
+        public function getAltura(){
+            return $this->Altura;
+        }
+        public function calcularArea(){
+            return $this->Largura*$this->Altura;;
+        }
+        public function calcularPerimetro(){
+            return ($this->Largura+$this->Altura)*2;
         }
     }
 ?>
