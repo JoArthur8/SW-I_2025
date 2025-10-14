@@ -1,33 +1,40 @@
 <?php
-    session_start();
+    session_start();    
     include_once 'conexao.php';
-
+    
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-
+    
     $consulta = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
-
+    
     $stmt = $pdo->prepare($consulta);
-
-    $stmt->bindParam('email',$email);
-    $stmt->bindParam('senha',$senha);
-
+    
+    // Vincula os parâmetros
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':senha', $senha);
+    
+    // Executa a consulta
     $stmt->execute();
 
-    $num_registros = $stmt->rowCount();
+    // Obtém o número de registros encontrados
+    $registros = $stmt->rowCount();
+    
+    // Obtém o resultado
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($resultado);
-
-    if($num_registros == 0){
-        // echo "VOCÊ NÃO TEM PERMISÃO";
-        header('Location: index.php');
-     } else{
+    //var_dump($resultado);
+    
+    
+    if($registros == 1){
         $_SESSION['id'] = $resultado['id'];
         $_SESSION['nome'] = $resultado['nome'];
         $_SESSION['email'] = $resultado['email'];
         header('Location: restrita.php');
-        // echo "ACESSO PERMITIDO PARA A RESTRITA.PHP";
+        //echo "ACESSO PERMITIDO PARA A RESTRITA.PHP";
+    }else{        
+        //echo "VOCÊ NÃO TEM PERMISSÃO";
+        header('Location: index.php');
     }
+?>
 
 ?>
